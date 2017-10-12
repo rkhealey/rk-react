@@ -1,0 +1,46 @@
+{
+  "extends": ["airbnb", "plugin:jest/recommended", "plugin:lodash/canonical"],
+  "parser": "babel-eslint",
+  "plugins": ["jest", "lodash"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "globals": {
+  },
+  "settings": {
+    "lodash": {
+      "version": 4
+    },
+    "import/resolver": {
+      "webpack": {
+        "config": "config/webpack.config.dev.js"
+      }
+    }
+  },
+  "rules": {
+    "func-names": "error",
+    "id-length": ["error", {"min": 2, "properties": "never", "exceptions": ["_", "P"]}],
+    "max-len": ["error", 120],
+    "no-alert": "error",
+    "no-console": "error",
+    "no-mixed-operators": ["error", {"allowSamePrecedence": true}],
+    "import/export": "error",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/order": [
+      "error", {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "lodash/chaining": ["error", "always"],
+    "lodash/prefer-constant": ["error", false],
+    "lodash/prefer-lodash-method": ["error", {"ignoreMethods": ["find"]}],
+    "react/jsx-no-bind": "error",
+    "react/no-unused-prop-types": ["error", {"skipShapeProps": true}]
+  }
+}
