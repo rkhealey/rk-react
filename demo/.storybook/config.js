@@ -10,7 +10,7 @@ function loadStories() {
 
 setOptions({
   name: 'rk-react',
-  // url: 'https://ahm.com.au',
+  // url: '',
   // goFullScreen: true,
   // showLeftPanel: true,
   showDownPanel: false,

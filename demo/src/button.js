@@ -5,4 +5,4 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
+  .add('with black theme', () => <Button onClick={action('clicked')} theme="black">Hello Button</Button>);
