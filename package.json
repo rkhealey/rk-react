@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel lib -d build",
-    "lint": "concurrently \"eslint --ext .js,.jsx ./lib\"",
+    "build:watch": "babel lib -w -d build",
+    "lint": "concurrently \"eslint --ext .js,.jsx ./lib ./demo\"",
     "lint:staged": "lint-staged",
     "prepublish": "npm run build"
   },

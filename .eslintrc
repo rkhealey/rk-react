@@ -41,6 +41,7 @@
     "lodash/prefer-constant": ["error", false],
     "lodash/prefer-lodash-method": ["error", {"ignoreMethods": ["find"]}],
     "react/jsx-no-bind": "error",
-    "react/no-unused-prop-types": ["error", {"skipShapeProps": true}]
+    "react/no-unused-prop-types": ["error", {"skipShapeProps": true}],
+    "react/jsx-filename-extension": 0
   }
 }
