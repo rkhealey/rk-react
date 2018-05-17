@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Card card default 1`] = `
+<div>
+  <h3>
+    I’m the card component
+  </h3>
+</div>
+`;

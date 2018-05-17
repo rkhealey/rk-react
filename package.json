@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "scripts/test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "eslint": "eslint src/**/*.js"
@@ -24,7 +24,10 @@
   "homepage": "https://github.com/rkhealey/rk-react#readme",
   "dependencies": {
     "@storybook/react": "^3.4.4",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
@@ -33,13 +36,20 @@
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.4",
     "@storybook/addon-links": "^3.4.4",
+    "@storybook/addon-storyshots": "^3.4.4",
     "@storybook/addons": "^3.4.4",
-    "babel-core": "^6.26.3",
+    "babel-jest": "^22.4.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
-    "pre-commit": "^1.2.2"
+    "jest": "^22.4.3",
+    "pre-commit": "^1.2.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.3.2"
   }
 }
