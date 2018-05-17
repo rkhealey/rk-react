@@ -2,49 +2,41 @@
   "name": "rk-react",
   "version": "1.0.0",
   "description": "",
-  "main": "build/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel lib -d build",
-    "build:watch": "babel lib -w -d build",
-    "lint": "concurrently \"eslint --ext .js,.jsx ./lib ./demo\"",
-    "lint:staged": "lint-staged",
-    "prepublish": "npm run build"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "eslint": "eslint src/**/*.js"
   },
-  "pre-commit": "lint:staged",
-  "lint-staged": {
-    "*.{js,jsx}": "eslint --fix"
-  },
+  "pre-commit": [
+    "eslint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rkhealey/rk-react.git"
   },
-  "author": "RKHealey <hello@rkhealey.com> (rkhealey.com)",
+  "author": "rkhealey",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rkhealey/rk-react/issues"
   },
   "homepage": "https://github.com/rkhealey/rk-react#readme",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "react": "^16.3.2"
+  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb": "^16.0.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jest": "^21.2.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-lodash": "^2.4.5",
-    "eslint-plugin-react": "^7.4.0",
-    "eslint-watch": "^3.1.2",
-    "lint-staged": "^4.2.3",
-    "polished": "^1.8.0",
-    "pre-commit": "^1.2.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "styled-components": "^2.2.1"
+    "@storybook/addon-actions": "^3.4.4",
+    "@storybook/addon-links": "^3.4.4",
+    "@storybook/addons": "^3.4.4",
+    "@storybook/react": "^3.4.4",
+    "babel-core": "^6.26.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "pre-commit": "^1.2.2"
   }
 }
