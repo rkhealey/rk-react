@@ -2,8 +2,9 @@
   "name": "rk-react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/main.js",
   "scripts": {
+    "build": "node scripts/build.js",
     "test": "scripts/test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -26,13 +27,18 @@
     "@storybook/react": "^3.4.4",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint-loader": "^2.0.0",
+    "file-loader": "^1.1.11",
+    "json-loader": "^0.5.7",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "styled-components": "^3.2.6"
+    "styled-components": "^3.2.6",
+    "webpack": "^4.8.3"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.4",
