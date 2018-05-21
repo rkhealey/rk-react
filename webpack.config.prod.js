@@ -1,22 +1,18 @@
 const path = require('path');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 
 module.exports = {
   bail: true,
-  devtool: 'eval',
+  devtool: 'source-map',
+  mode: 'development',
   entry: [
     path.resolve(__dirname, 'src/index.js'),
   ],
   output: {
     // The build folder.
     path: path.resolve(__dirname, 'lib'),
-    // Generated JS file names (with nested folders).
-    // There will be one main bundle, and one file per asynchronous chunk.
-    // We don't currently advertise code splitting but Webpack supports it.
     filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
     publicPath: '/',
-    libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
@@ -67,25 +63,15 @@ module.exports = {
       commonjs2: 'react-dom',
       amd: 'react-dom',
     },
+    'styled-components': {
+      commonjs: 'styled-components',
+      commonjs2: 'styled-components',
+      amd: 'styled-components',
+    },
   },
-  plugins: [
-    new webpack.DefinePlugin(process.env.NODE_ENV),
-    // new webpack.optimize.OccurrenceOrderPlugin(),
-    // new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     screw_ie8: true, // React doesn't support IE8
-    //     warnings: false,
-    //   },
-    //   mangle: {
-    //     screw_ie8: true,
-    //   },
-    //   output: {
-    //     comments: false,
-    //     screw_ie8: true,
-    //   },
-    // }),
-  ],
+  // plugins: [
+  //   new webpack.DefinePlugin(process.env.NODE_ENV),
+  // ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
   node: {

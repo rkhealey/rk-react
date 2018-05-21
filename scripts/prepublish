@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export NODE_ENV=test
+
+if [ -n "$npm_config_coverage" ]; then COVERAGE="--coverage"; else COVERAGE=""; fi
+if [ -n "$npm_config_watch" ]; then WATCH="--watch"; else WATCH=""; fi;
+
+jest \
+  --config=$CONFIG \
+  $WATCH \
+  $COVERAGE
