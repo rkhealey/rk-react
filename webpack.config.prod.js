@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   bail: true,
   devtool: 'source-map',
-  mode: 'development',
+  mode: 'production',
   entry: [
     path.resolve(__dirname, 'src/index.js'),
   ],
@@ -13,6 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'lib'),
     filename: '[name].js',
     publicPath: '/',
+    libraryTarget: 'commonjs',
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
@@ -64,6 +65,7 @@ module.exports = {
       amd: 'react-dom',
     },
     'styled-components': {
+      root: 'styled-components',
       commonjs: 'styled-components',
       commonjs2: 'styled-components',
       amd: 'styled-components',
