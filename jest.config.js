@@ -15,6 +15,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!**/*.stories.{js,jsx}',
+    '!src/components/grid/index.js',
   ],
   coveragePathIgnorePatterns: [
     '<rootDir>/src/styles/',

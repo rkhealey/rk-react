@@ -1,9 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Storyshots Button button block 1`] = `
+<button
+  className="sc-bxivhb iJEtTY"
+  onClick={[Function]}
+  type="button"
+>
+  click me
+</button>
+`;
+
+exports[`Storyshots Button button default 1`] = `
+<button
+  className="sc-bxivhb eITEOp"
+  onClick={[Function]}
+  type="button"
+>
+  click me
+</button>
+`;
+
+exports[`Storyshots Button button invisible 1`] = `
+<button
+  className="sc-bxivhb fLskiI"
+  onClick={[Function]}
+  type="button"
+>
+  click me
+</button>
+`;
+
 exports[`Storyshots Card card default 1`] = `
-<div>
+<div
+  className="sc-ifAKCX fAWOVe"
+>
   <h3>
     I’m the card component
   </h3>
+</div>
+`;
+
+exports[`Storyshots Grid grid default 1`] = `
+<div
+  className="sc-htpNat dlGndh"
+>
+  <div
+    className="sc-bwzfXH kgpiyF"
+    spacing="space-between"
+  >
+    <div
+      className="sc-bdVaJa dgmonm"
+    >
+      <div
+        className="sc-EHOje GvAkk"
+      >
+        Col 1
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa dgmonm"
+    >
+      <div
+        className="sc-EHOje GvAkk"
+      >
+        Col 2
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa dgmonm"
+    >
+      <div
+        className="sc-EHOje GvAkk"
+      >
+        Col 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Grid grid even columns 1`] = `
+<div
+  className="sc-htpNat dlGndh"
+>
+  <div
+    className="sc-bwzfXH kgpiyF"
+    spacing="space-between"
+  >
+    <div
+      className="sc-bdVaJa Ablql"
+    >
+      <div
+        className="sc-EHOje GvAkk"
+      >
+        Col 1
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa Ablql"
+    >
+      <div
+        className="sc-EHOje GvAkk"
+      >
+        Col 2
+      </div>
+    </div>
+    <div
+      className="sc-bdVaJa Ablql"
+    >
+      <div
+        className="sc-EHOje GvAkk"
+      >
+        Col 3
+      </div>
+    </div>
+  </div>
 </div>
 `;
