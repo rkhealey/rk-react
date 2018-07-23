@@ -117,3 +117,36 @@ exports[`Storyshots Grid grid even columns 1`] = `
   </div>
 </div>
 `;
+
+exports[`Storyshots Icon icon default 1`] = `
+<i
+  className="material-icons sc-bZQynM jcncOk"
+  color={null}
+>
+  face
+</i>
+`;
+
+exports[`Storyshots Icon icon with button 1`] = `
+<button
+  className="sc-bxivhb ieijVV"
+  onClick={[Function]}
+  type="button"
+>
+  <i
+    className="material-icons sc-bZQynM jcncOk"
+    color={null}
+  >
+    face
+  </i>
+</button>
+`;
+
+exports[`Storyshots Icon icon with color 1`] = `
+<i
+  className="material-icons sc-bZQynM hhBCcs"
+  color="purple"
+>
+  face
+</i>
+`;
