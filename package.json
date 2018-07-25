@@ -1,7 +1,7 @@
 {
   "name": "rk-react",
   "version": "1.0.0",
-  "description": "",
+  "description": "Global UI components built with react and styled components",
   "main": "lib/main.js",
   "scripts": {
     "build": "NODE_ENV=production node scripts/build.js",
