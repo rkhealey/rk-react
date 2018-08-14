@@ -24,15 +24,27 @@ const StyledButton = styled.button`
       color: ${({ theme }) => _.get(theme, 'colorText')};
       padding: 0;
     `}
+    ${({ floating }) =>
+    floating && css`
+      border-radius: 50%;
+      bottom: ${_.get(floating, 'bottom', 'auto')};
+      box-shadow: ${({ theme }) => _.get(theme, 'boxShadow')};
+      left: ${_.get(floating, 'left', 'auto')};
+      padding: 1.5rem;
+      position: fixed;
+      right: ${_.get(floating, 'right', 'auto')};
+      top: ${_.get(floating, 'top', 'auto')};
+    `}
   
   ${({ overrides }) => overrides}
 `;
 
-const Button = ({ block, children, invisible, onClick, overrides, theme, type }) => (
+const Button = ({ block, children, floating, invisible, onClick, overrides, theme, type }) => (
   <StyledButton
     onClick={onClick}
     type={type}
     block={block}
+    floating={floating}
     invisible={invisible}
     overrides={overrides}
     theme={theme}
@@ -44,6 +56,12 @@ const Button = ({ block, children, invisible, onClick, overrides, theme, type })
 Button.propTypes = {
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  floating: PropTypes.shape({
+    top: PropTypes.number,
+    left: PropTypes.number,
+    bottom: PropTypes.number,
+    right: PropTypes.number,
+  }),
   invisible: PropTypes.bool,
   onClick: PropTypes.func,
   overrides: PropTypes.string,
@@ -53,6 +71,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   block: false,
+  floating: null,
   invisible: false,
   onClick: _.noop,
   overrides: '',

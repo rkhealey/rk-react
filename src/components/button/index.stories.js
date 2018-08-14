@@ -27,4 +27,11 @@ storiesOf('Button', module)
         click me
       </Button>
     </ThemeProvider>
+  ))
+  .add('button floating', () => (
+    <ThemeProvider theme={defaultTheme}>
+      <Button floating={{ top: '3rem', left: '6rem' }}>
+        click me
+      </Button>
+    </ThemeProvider>
   ));
