@@ -22,4 +22,9 @@ storiesOf('Icon', module)
     <ThemeProvider theme={defaultTheme}>
       <Icon name="face" onClick={_.noop} />
     </ThemeProvider>
+  ))
+  .add('icon with size', () => (
+    <ThemeProvider theme={defaultTheme}>
+      <Icon name="face" onClick={_.noop} size={60} />
+    </ThemeProvider>
   ));
