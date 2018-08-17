@@ -64,7 +64,7 @@ Button.propTypes = {
   }),
   invisible: PropTypes.bool,
   onClick: PropTypes.func,
-  overrides: PropTypes.string,
+  overrides: PropTypes.shape({}),
   theme: PropTypes.shape({}),
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
 };
@@ -74,7 +74,7 @@ Button.defaultProps = {
   floating: null,
   invisible: false,
   onClick: _.noop,
-  overrides: '',
+  overrides: null,
   theme: null,
   type: 'button',
 };
