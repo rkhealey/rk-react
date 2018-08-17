@@ -2,7 +2,7 @@
 
 exports[`Storyshots Button button block 1`] = `
 <button
-  className="sc-bxivhb iJEtTY"
+  className="sc-bxivhb hmsGEH"
   onClick={[Function]}
   type="button"
 >
@@ -12,7 +12,17 @@ exports[`Storyshots Button button block 1`] = `
 
 exports[`Storyshots Button button default 1`] = `
 <button
-  className="sc-bxivhb eITEOp"
+  className="sc-bxivhb nYfzy"
+  onClick={[Function]}
+  type="button"
+>
+  click me
+</button>
+`;
+
+exports[`Storyshots Button button floating 1`] = `
+<button
+  className="sc-bxivhb irTQGt"
   onClick={[Function]}
   type="button"
 >
@@ -22,7 +32,7 @@ exports[`Storyshots Button button default 1`] = `
 
 exports[`Storyshots Button button invisible 1`] = `
 <button
-  className="sc-bxivhb fLskiI"
+  className="sc-bxivhb elmphq"
   onClick={[Function]}
   type="button"
 >
@@ -52,7 +62,7 @@ exports[`Storyshots Grid grid default 1`] = `
       className="sc-bdVaJa dgmonm"
     >
       <div
-        className="sc-EHOje GvAkk"
+        className="sc-htoDjs jwxkCT"
       >
         Col 1
       </div>
@@ -61,7 +71,7 @@ exports[`Storyshots Grid grid default 1`] = `
       className="sc-bdVaJa dgmonm"
     >
       <div
-        className="sc-EHOje GvAkk"
+        className="sc-htoDjs jwxkCT"
       >
         Col 2
       </div>
@@ -70,7 +80,7 @@ exports[`Storyshots Grid grid default 1`] = `
       className="sc-bdVaJa dgmonm"
     >
       <div
-        className="sc-EHOje GvAkk"
+        className="sc-htoDjs jwxkCT"
       >
         Col 3
       </div>
@@ -91,7 +101,7 @@ exports[`Storyshots Grid grid even columns 1`] = `
       className="sc-bdVaJa Ablql"
     >
       <div
-        className="sc-EHOje GvAkk"
+        className="sc-htoDjs jwxkCT"
       >
         Col 1
       </div>
@@ -100,7 +110,7 @@ exports[`Storyshots Grid grid even columns 1`] = `
       className="sc-bdVaJa Ablql"
     >
       <div
-        className="sc-EHOje GvAkk"
+        className="sc-htoDjs jwxkCT"
       >
         Col 2
       </div>
@@ -109,7 +119,7 @@ exports[`Storyshots Grid grid even columns 1`] = `
       className="sc-bdVaJa Ablql"
     >
       <div
-        className="sc-EHOje GvAkk"
+        className="sc-htoDjs jwxkCT"
       >
         Col 3
       </div>
@@ -120,7 +130,7 @@ exports[`Storyshots Grid grid even columns 1`] = `
 
 exports[`Storyshots Icon icon default 1`] = `
 <i
-  className="material-icons sc-bZQynM jcncOk"
+  className="material-icons sc-EHOje cBLLRW"
   color={null}
 >
   face
@@ -129,12 +139,12 @@ exports[`Storyshots Icon icon default 1`] = `
 
 exports[`Storyshots Icon icon with button 1`] = `
 <button
-  className="sc-bxivhb ieijVV"
+  className="sc-bxivhb eLWyNB"
   onClick={[Function]}
   type="button"
 >
   <i
-    className="material-icons sc-bZQynM jcncOk"
+    className="material-icons sc-EHOje cBLLRW"
     color={null}
   >
     face
@@ -144,9 +154,36 @@ exports[`Storyshots Icon icon with button 1`] = `
 
 exports[`Storyshots Icon icon with color 1`] = `
 <i
-  className="material-icons sc-bZQynM hhBCcs"
+  className="material-icons sc-EHOje krNhiV"
   color="purple"
 >
   face
 </i>
+`;
+
+exports[`Storyshots Modal modal default 1`] = `
+<div>
+  <div />
+  <button
+    className="sc-bxivhb iFIPVN"
+    onClick={[Function]}
+    type="button"
+  >
+    Open Modal
+  </button>
+</div>
+`;
+
+exports[`Storyshots Transition Fade 1`] = `
+<div>
+  <div>
+    <button
+      className="sc-bxivhb iFIPVN"
+      onClick={[Function]}
+      type="button"
+    >
+      Toggle
+    </button>
+  </div>
+</div>
 `;
