@@ -3,6 +3,7 @@ import Button from './components/button';
 import Card from './components/card';
 import Icon from './components/icon';
 import Modal from './components/modal';
+import Toggle from './components/toggle';
 import Transition from './components/transition';
 
 module.exports = {
@@ -12,6 +13,7 @@ module.exports = {
   Icon,
   Modal,
   Row,
+  Toggle,
   Transition,
   Wrapper,
 };
