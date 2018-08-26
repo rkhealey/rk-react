@@ -6,7 +6,7 @@ const Transition = props => (
   <CSSTransition
     {...props}
     classNames={props.classname}
-    timeout={{ enter: 500, exit: 300 }}
+    timeout={{ enter: 500, exit: 0 }}
     unmountOnExit
   />
 );
