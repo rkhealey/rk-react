@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Icon from '../icon';
 
 const InputWrapper = styled.div`
-  margin: 5px 0 15px;
+  margin-bottom: 2rem;
 `;
 
 const StyledSelect = styled.select`
@@ -19,7 +19,7 @@ const StyledSelect = styled.select`
   font-size: 1rem;
   margin: 10px 0;
   outline: none;
-  padding: 10px;
+  padding: 1rem;
   position: relative;
   width: 100%;
   z-index: 101;
@@ -48,7 +48,7 @@ const Error = styled.p`
 const IconOverrides = `
   color: #cccccc;
   position: absolute;
-  top: 0;
+  top: 0.5rem;
   right: 1rem;
   font-size: 2.5rem;
   z-index: 100;
@@ -60,7 +60,7 @@ const Select = ({ label, meta, input, options, theme }) => (
       <StyledSelect {...input} theme={theme} noValidate defaultValue="">
         <option value="" disabled>{label}</option>
         {_.map(options, option => (
-          <option value={option.value}>{option.label}</option>
+          <option key={option.value} value={option.value}>{option.label}</option>
         ))}
       </StyledSelect>
       <Icon name="arrow_drop_down" overrides={IconOverrides} />
