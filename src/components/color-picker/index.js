@@ -19,7 +19,7 @@ const ColorPickerFrame = styled.div`
   justify-content: space-between;
   left: 0;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 400px;
   max-height: 500px;
   overflow: scroll;
   padding: 1rem;
