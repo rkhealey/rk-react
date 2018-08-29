@@ -16,6 +16,7 @@ const StyledModal = styled.div`
   margin: 0 auto;
   right: 0;
   width: 80%;
+  z-index: 10000;
 
   ${slide}
 `;
@@ -30,6 +31,7 @@ const Overlay = styled.div`
   width: 100%;
   background: #000000;
   opacity: 0.7;
+  z-index: 9999;
 
   ${fade(0.7)}
 `;
