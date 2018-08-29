@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Icon from '../icon';
 
 const InputWrapper = styled.div`
+  flex: 1;
   margin-bottom: 2rem;
 `;
 
