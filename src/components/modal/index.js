@@ -11,7 +11,7 @@ import { fade, slide } from '../../styles/transitions';
 
 const StyledModal = styled.div`
   position: fixed;
-  top: 30%;
+  top: 10%;
   left: 0;
   margin: 0 auto;
   right: 0;
