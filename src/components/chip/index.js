@@ -18,7 +18,7 @@ const StyledChip = styled.div`
   border-radius: 1rem;
   text-decoration: none;
   justify-content: center;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   padding: 0 0.75rem;
 
   &:hover {
@@ -36,8 +36,8 @@ const StyledChip = styled.div`
     `}
 `;
 
-const Chip = ({ onClick }) => (
-  <StyledChip {...this.props} onClick={onClick} />
+const Chip = props => (
+  <StyledChip {...props} onClick={props.onClick} />
 );
 
 Chip.propTypes = {

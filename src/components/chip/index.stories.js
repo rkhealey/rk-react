@@ -20,4 +20,19 @@ storiesOf('Chip', module)
         Banana
       </Chip>
     </ThemeProvider>
+  ))
+  .add('chip row', () => (
+    <ThemeProvider theme={defaultTheme}>
+      <div>
+        <Chip>
+          Apple
+        </Chip>
+        <Chip>
+          Strawberry
+        </Chip>
+        <Chip active>
+          Banana
+        </Chip>
+      </div>
+    </ThemeProvider>
   ));
