@@ -2,6 +2,7 @@ import { Column, Row, Wrapper } from './components/grid';
 import Align from './components/align';
 import Button from './components/button';
 import Card from './components/card';
+import Chip from './components/chip';
 import colors from './components/color-picker/colors';
 import ColorPicker from './components/color-picker';
 import Icon from './components/icon';
@@ -14,6 +15,7 @@ module.exports = {
   Align,
   Button,
   Card,
+  Chip,
   colors,
   ColorPicker,
   Column,
