@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const StyledChip = styled.div`
-  background-color: ${({ theme }) => theme.colorBG};
+  background-color: #e7e7e7;
   color: ${({ theme }) => theme.colorText};
   border: none;
   height: 2rem;
@@ -22,7 +22,7 @@ const StyledChip = styled.div`
   padding: 0 0.75rem;
 
   &:hover {
-    background-color: #e7e7e7;
+    background-color: #d8d8d8;
   }
 
   ${({ active }) =>
