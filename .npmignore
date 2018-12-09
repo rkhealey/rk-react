@@ -5,5 +5,10 @@ demo
 .storybook
 coverage
 node_modules
-.eslint.json
+.eslintrc.json
 .gitignore
+jest.setup.js
+jest.config.js
+webpack.config.prod.js
+src
+scripts
