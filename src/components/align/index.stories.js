@@ -40,4 +40,10 @@ storiesOf('Align', module)
       <Box />
       <Box />
     </Align>
+  ))
+  .add('align with overrides', () => (
+    <Align overrides={{ 'background-color': 'pink' }}>
+      <Box />
+      <Box />
+    </Align>
   ));
