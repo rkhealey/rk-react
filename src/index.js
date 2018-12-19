@@ -12,7 +12,7 @@ import TabGroup from './components/tab-group';
 import Toggle from './components/toggle';
 import Transition from './components/transition';
 
-module.exports = {
+export {
   Align,
   Button,
   Card,
