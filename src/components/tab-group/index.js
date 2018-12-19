@@ -9,12 +9,14 @@ import TabPanel from './tab-panel';
 const TabList = styled.ul`
   display: flex;
   justify-content: center;
+
+  ${({ overrides }) => overrides}
 `;
 
 
-const TabGroup = ({ input, options }) => (
+const TabGroup = ({ input, options, overrides }) => (
   <div>
-    <TabList role="tablist">
+    <TabList role="tablist" overrides={overrides}>
       {_.map(options, ({ value, text }) => (
         <Tab
           id={value}
@@ -46,6 +48,11 @@ TabGroup.propTypes = {
       value: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  overrides: PropTypes.shape({}),
+};
+
+TabGroup.defaultProps = {
+  overrides: null,
 };
 
 export default TabGroup;

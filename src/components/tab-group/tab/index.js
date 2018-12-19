@@ -9,8 +9,6 @@ const StyledTab = styled.li`
   cursor: pointer;
   padding: 1rem 3rem;
   text-align: center;
-
-  ${({ overrides }) => overrides}
 `;
 
 const StyledButton = styled.button`

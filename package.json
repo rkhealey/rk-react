@@ -1,6 +1,6 @@
 {
   "name": "rk-react",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Global UI components built with react and styled components",
   "main": "lib/main.js",
   "scripts": {
