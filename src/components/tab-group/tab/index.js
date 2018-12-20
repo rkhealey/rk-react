@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-
-import defaultTheme from '../../../styles/theme';
+import styled from 'styled-components';
 
 const StyledTab = styled.li`
   color: #cccccc;
@@ -24,13 +22,6 @@ const StyledButton = styled.button`
     &visited {
       outline: none;
     }
-  
-  ${({ isActive }) =>
-    isActive && css`
-      .title {
-        color: ${defaultTheme.colorPrimary};
-      }
-    `}
 `;
 
 const StyledText = styled.h3`
