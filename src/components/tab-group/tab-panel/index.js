@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 
 const StyledPanel = styled.div`
   display: none;
-  padding: 3rem;
 
   ${({ isActive }) =>
     isActive && css`
@@ -17,6 +16,7 @@ const TabPanel = ({ isActive, children }) => (
     role="tabpanel"
     aria-hidden={!isActive}
     isActive={isActive}
+    className="tabPanel"
   >
     {children}
   </StyledPanel>

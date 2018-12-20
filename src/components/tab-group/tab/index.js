@@ -44,7 +44,7 @@ const Tab = ({ children, id, isActive, onClick }) => (
     aria-controls={id}
     aria-selected={isActive}
     role="tab"
-    className={isActive ? 'active' : ''}
+    className={isActive ? 'active tab' : 'tab'}
   >
     <StyledButton
       onClick={() => { onClick(id); }}
