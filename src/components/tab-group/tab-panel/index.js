@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 
-const StyledPanel = styled.div`
-  display: none;
-
-  ${({ isActive }) =>
-    isActive && css`
-      display: block;
-    `}
-`;
-
-const TabPanel = ({ isActive, children }) => (
-  <StyledPanel
-    role="tabpanel"
-    aria-hidden={!isActive}
-    isActive={isActive}
-    className="tabPanel"
-  >
-    {children}
-  </StyledPanel>
-);
+const TabPanel = ({ isActive, children }) => {
+  if (!isActive) {
+    return null;
+  }
+  return (
+    <div
+      role="tabpanel"
+      aria-hidden={!isActive}
+      className="tabPanel"
+    >
+      {children}
+    </div>
+  );
+};
 
 TabPanel.propTypes = {
   children: PropTypes.node.isRequired,
