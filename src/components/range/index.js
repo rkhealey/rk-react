@@ -115,12 +115,13 @@ const ColorBand = styled.div`
   left: 0;
   width: ${({ width }) => `${width}%`};
   top: 1rem;
+  transform: translate(0, 1px);
 `;
 
 const ValueLabel = styled.div`
   position: absolute;
   color: ${({ theme }) => theme.colorMute};
-  top: -1rem;
+  top: -1.5rem;
   left: ${({ left }) => `${left}%`};
   transform: translate(-1rem, 0);
   text-align: center;
