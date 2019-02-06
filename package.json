@@ -1,6 +1,6 @@
 {
   "name": "rk-react",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Global UI components built with react and styled components",
   "main": "lib/main.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/rkhealey/rk-react#readme",
   "dependencies": {
     "lodash": "^4.17.10",
+    "polished": "^2.3.3",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

@@ -7,6 +7,7 @@ import colors from './components/color-picker/colors';
 import ColorPicker from './components/color-picker';
 import Icon from './components/icon';
 import Modal from './components/modal';
+import Range from './components/range';
 import Select from './components/select';
 import TabGroup from './components/tab-group';
 import Toggle from './components/toggle';
@@ -22,6 +23,7 @@ export {
   Column,
   Icon,
   Modal,
+  Range,
   Row,
   Select,
   TabGroup,
