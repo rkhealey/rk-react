@@ -7,7 +7,8 @@ import { rgba } from 'polished';
 
 const InputWrapper = styled.div`
   flex: 1;
-  margin-bottom: 2rem;
+
+  ${({ overrides }) => overrides}
 `;
 
 const StyledLabel = styled.label`
@@ -30,7 +31,7 @@ const StyledRange = styled.input`
     width: 100%;
     height: 2px;
     cursor: pointer;
-    background: ${({ theme }) => theme.colorBorder};
+    background: purple;
     border-radius: 1.3px;
     border: 0;
   }
@@ -105,8 +106,6 @@ const StyledRange = styled.input`
     border-radius: 2.6px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
   }
-
-  ${({ overrides }) => overrides}
 `;
 
 const ColorBand = styled.div`
@@ -125,7 +124,7 @@ const Range = ({ label, input, theme, overrides, min, max, step }) => {
 
   const bandWidth = -(thumbPos / difference) * 100;
   return (
-    <InputWrapper>
+    <InputWrapper overrides={overrides}>
       <StyledLabel htmlFor={input.name}>
         {label && <span id="theLabel">{label}</span>}
         <StyledRange
@@ -135,7 +134,6 @@ const Range = ({ label, input, theme, overrides, min, max, step }) => {
           min={min}
           max={max}
           step={step}
-          overrides={overrides}
         />
         <ColorBand theme={theme} width={bandWidth} />
       </StyledLabel>

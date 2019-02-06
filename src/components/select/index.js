@@ -7,7 +7,8 @@ import Icon from '../icon';
 
 const InputWrapper = styled.div`
   flex: 1;
-  margin-bottom: 2rem;
+
+  ${({ overrides }) => overrides}
 `;
 
 const StyledSelect = styled.select`
@@ -55,8 +56,8 @@ const IconOverrides = `
   z-index: 100;
 `;
 
-const Select = ({ meta, input, options, theme, defaultOption }) => (
-  <InputWrapper>
+const Select = ({ meta, input, options, theme, defaultOption, overrides }) => (
+  <InputWrapper overrides={overrides}>
     <StyledLabel htmlFor={input.name}>
       <StyledSelect {...input} theme={theme} noValidate defaultValue="">
         {defaultOption && <option value="" disabled>{defaultOption}</option>}
@@ -85,12 +86,14 @@ Select.propTypes = {
   })).isRequired,
   theme: PropTypes.shape({}),
   defaultOption: PropTypes.string,
+  overrides: PropTypes.shape({}),
 };
 
 Select.defaultProps = {
   meta: {},
   theme: null,
   defaultOption: null,
+  overrides: {},
 };
 
 export default Select;
