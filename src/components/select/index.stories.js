@@ -53,6 +53,11 @@ storiesOf('Select', module)
       <SelectExample {...simpleProps} />
     </ThemeProvider>
   ))
+  .add('select with default option', () => (
+    <ThemeProvider theme={defaultTheme}>
+      <SelectExample {...simpleProps} defaultOption="Please select an option" />
+    </ThemeProvider>
+  ))
   .add('select with error', () => (
     <ThemeProvider theme={defaultTheme}>
       <SelectExample {...simpleProps} meta={{ touched: true, error: 'This field is required' }} />

@@ -55,11 +55,11 @@ const IconOverrides = `
   z-index: 100;
 `;
 
-const Select = ({ label, meta, input, options, theme }) => (
+const Select = ({ meta, input, options, theme, defaultOption }) => (
   <InputWrapper>
     <StyledLabel htmlFor={input.name}>
       <StyledSelect {...input} theme={theme} noValidate defaultValue="">
-        <option value="" disabled>{label}</option>
+        {defaultOption && <option value="" disabled>{defaultOption}</option>}
         {_.map(options, option => (
           <option key={option.value} value={option.value}>{option.label}</option>
         ))}
@@ -71,7 +71,6 @@ const Select = ({ label, meta, input, options, theme }) => (
 );
 
 Select.propTypes = {
-  label: PropTypes.string,
   meta: PropTypes.shape({
     error: PropTypes.string,
     touched: PropTypes.bool,
@@ -85,12 +84,13 @@ Select.propTypes = {
     value: PropTypes.string,
   })).isRequired,
   theme: PropTypes.shape({}),
+  defaultOption: PropTypes.string,
 };
 
 Select.defaultProps = {
-  label: 'Select an option',
   meta: {},
   theme: null,
+  defaultOption: null,
 };
 
 export default Select;
