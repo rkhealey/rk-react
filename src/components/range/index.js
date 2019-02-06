@@ -114,7 +114,17 @@ const ColorBand = styled.div`
   position: absolute;
   left: 0;
   width: ${({ width }) => `${width}%`};
-  top: 50%;
+  top: 1rem;
+`;
+
+const ValueLabel = styled.div`
+  position: absolute;
+  color: ${({ theme }) => theme.colorMute};
+  top: -1rem;
+  left: ${({ left }) => `${left}%`};
+  transform: translate(-1rem, 0);
+  text-align: center;
+  width: 1.875rem;
 `;
 
 const Range = ({ label, input, theme, overrides, min, max, step }) => {
@@ -136,6 +146,7 @@ const Range = ({ label, input, theme, overrides, min, max, step }) => {
           step={step}
         />
         <ColorBand theme={theme} width={bandWidth} />
+        <ValueLabel theme={theme} left={bandWidth}>{_.get(input, 'value', '')}</ValueLabel>
       </StyledLabel>
     </InputWrapper>
   );

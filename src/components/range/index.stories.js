@@ -15,6 +15,7 @@ const simpleProps = {
   min: 1,
   max: 30,
   step: 1,
+  overrides: { margin: '2rem auto', width: '40%' },
 };
 
 class RangeExample extends PureComponent {
