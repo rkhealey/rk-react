@@ -5,18 +5,22 @@ import styled from 'styled-components';
 
 import { rgba } from 'polished';
 
+const InputWrapper = styled.div`
+  flex: 1;
+  margin-bottom: 2rem;
+`;
+
 const StyledLabel = styled.label`
   background: #ffffff;
   border-radius: 4px;
   display: block;
   position: relative;
-  margin: 1rem;
 `;
 
 const StyledRange = styled.input`
   -webkit-appearance: none;
   width: 100%;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
 
   &:focus {
     outline: none;
@@ -121,19 +125,21 @@ const Range = ({ label, input, theme, overrides, min, max, step }) => {
 
   const bandWidth = -(thumbPos / difference) * 100;
   return (
-    <StyledLabel htmlFor={input.name}>
-      {label && <span id="theLabel">{label}</span>}
-      <StyledRange
-        type="range"
-        {...input}
-        theme={theme}
-        min={min}
-        max={max}
-        step={step}
-        overrides={overrides}
-      />
-      <ColorBand theme={theme} width={bandWidth} />
-    </StyledLabel>
+    <InputWrapper>
+      <StyledLabel htmlFor={input.name}>
+        {label && <span id="theLabel">{label}</span>}
+        <StyledRange
+          type="range"
+          {...input}
+          theme={theme}
+          min={min}
+          max={max}
+          step={step}
+          overrides={overrides}
+        />
+        <ColorBand theme={theme} width={bandWidth} />
+      </StyledLabel>
+    </InputWrapper>
   );
 };
 
