@@ -65,7 +65,7 @@ const Select = ({ meta, input, options, theme, defaultOption, overrides }) => (
           <option key={option.value} value={option.value}>{option.label}</option>
         ))}
       </StyledSelect>
-      <Icon name="arrow_drop_down" overrides={IconOverrides} />
+      <Icon name="keyboard_arrow_down" overrides={IconOverrides} />
     </StyledLabel>
     {meta.error && meta.touched && <Error theme={theme}>{meta.error}</Error>}
   </InputWrapper>
