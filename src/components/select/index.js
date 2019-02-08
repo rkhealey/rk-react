@@ -50,9 +50,9 @@ const Error = styled.p`
 const IconOverrides = `
   color: #cccccc;
   position: absolute;
-  top: 0.5rem;
+  top: 0.75rem;
   right: 1rem;
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   z-index: 100;
 `;
 
