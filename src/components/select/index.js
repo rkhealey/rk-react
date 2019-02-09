@@ -59,7 +59,7 @@ const IconOverrides = `
 const Select = ({ meta, input, options, theme, defaultOption, overrides }) => (
   <InputWrapper overrides={overrides}>
     <StyledLabel htmlFor={input.name}>
-      <StyledSelect {...input} theme={theme} noValidate defaultValue="">
+      <StyledSelect {...input} value={_.get(input, 'value', '')} theme={theme} noValidate>
         {defaultOption && <option value="" disabled>{defaultOption}</option>}
         {_.map(options, option => (
           <option key={option.value} value={option.value}>{option.label}</option>
