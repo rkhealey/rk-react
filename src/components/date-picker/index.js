@@ -12,17 +12,28 @@ const DatePickerWrapper = styled.div`
   ${({ theme }) => DPStyles(theme)}
 `;
 
-const DatePicker = ({ input, displayFormat }) => {
+const StyledLabel = styled.label`
+  background: #ffffff;
+  border-radius: 4px;
+  color: ${({ theme }) => theme.colorMute};
+  display: block;
+  position: relative;
+`;
+
+const DatePicker = ({ input, displayFormat, label }) => {
   const date = !input.value ? moment() : moment(input.value, DATE_FORMAT);
   return (
     <DatePickerWrapper>
-      <DatePickerInput
-        className="rk-datepicker"
-        iconClassName="material-icons calendar"
-        onChange={input.onChange}
-        value={date}
-        displayFormat={displayFormat}
-      />
+      <StyledLabel htmlFor={input.name}>
+        {label && <span>{label}</span>}
+        <DatePickerInput
+          className="rk-datepicker"
+          iconClassName="material-icons calendar"
+          onChange={input.onChange}
+          value={date}
+          displayFormat={displayFormat}
+        />
+      </StyledLabel>
     </DatePickerWrapper>
   );
 };
@@ -33,10 +44,12 @@ DatePicker.propTypes = {
     onChange: PropTypes.func.isRequired,
   }).isRequired,
   displayFormat: PropTypes.string,
+  label: PropTypes.string,
 };
 
 DatePicker.defaultProps = {
   displayFormat: DATE_FORMAT,
+  label: null,
 };
 
 export default DatePicker;

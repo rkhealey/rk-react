@@ -16,4 +16,9 @@ storiesOf('Date Picker', module)
     <ThemeProvider theme={defaultTheme}>
       <DatePicker input={simpleProps} />
     </ThemeProvider>
+  ))
+  .add('date picker with label', () => (
+    <ThemeProvider theme={defaultTheme}>
+      <DatePicker input={simpleProps} label="My Date" />
+    </ThemeProvider>
   ));
