@@ -5,6 +5,7 @@ import Card from './components/card';
 import Chip from './components/chip';
 import colors from './components/color-picker/colors';
 import ColorPicker from './components/color-picker';
+import DatePicker from './components/date-picker';
 import Icon from './components/icon';
 import Modal from './components/modal';
 import Range from './components/range';
@@ -21,6 +22,7 @@ export {
   colors,
   ColorPicker,
   Column,
+  DatePicker,
   Icon,
   Modal,
   Range,
