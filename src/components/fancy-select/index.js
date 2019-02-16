@@ -71,14 +71,24 @@ class FancySelect extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.changeHandler = this.changeHandler.bind(this);
+    // this.changeHandler = this.changeHandler.bind(this);
     this.transformValue = this.transformValue.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  changeHandler(func) {
-    return function handleChange(value) {
-      func(value ? value.value : '');
-    };
+  // changeHandler(func) {
+  //   return function handleChange(value) {
+  //     func(value ? value.value : '');
+  //   };
+  // }
+
+  handleChange(event) {
+    console.log(event);
+    if (this.props.input.onChange && event != null) {
+      this.props.input.onChange(event.value);
+    } else {
+      this.props.input.onChange(null);
+    }
   }
 
   transformValue(value, options) {
@@ -88,7 +98,18 @@ class FancySelect extends PureComponent {
   }
 
   render() {
-    const { input: { name, value, onChange, onFocus, onBlur }, options, isGrouped, overrides, defaultIcon } = this.props;
+    const {
+      input: {
+        name,
+        value,
+        onFocus,
+        onBlur,
+      },
+      options,
+      isGrouped,
+      overrides,
+      defaultIcon,
+    } = this.props;
     const transformedValue = this.transformValue(value, options);
     const formattedOptions = isGrouped ? groupOptions(options, defaultIcon) : transformOptions(options, defaultIcon);
     return (
@@ -101,7 +122,7 @@ class FancySelect extends PureComponent {
           filterOption={filterOptions}
           styles={selectStyles}
           name={name}
-          onChange={() => this.changeHandler(onChange)}
+          onChange={this.handleChange}
           onFocus={onFocus}
           onBlur={() => onBlur(transformedValue)}
           value={transformedValue}

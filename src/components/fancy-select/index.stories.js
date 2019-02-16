@@ -39,7 +39,7 @@ class FancySelectExample extends PureComponent {
 
     this.updateSelection = this.updateSelection.bind(this);
   }
-  updateSelection(obj) { this.setState({ selectedOption: _.get(obj, 'label') }); }
+  updateSelection(obj) { this.setState({ selectedOption: obj }); }
 
   render() {
     return (
