@@ -88,7 +88,7 @@ class FancySelect extends PureComponent {
   }
 
   render() {
-    const { input: { name, value, onChange, onFocus }, options, isGrouped, overrides, defaultIcon } = this.props;
+    const { input: { name, value, onChange, onFocus, onBlur }, options, isGrouped, overrides, defaultIcon } = this.props;
     const transformedValue = this.transformValue(value, options);
     const formattedOptions = isGrouped ? groupOptions(options, defaultIcon) : transformOptions(options, defaultIcon);
     return (
@@ -103,6 +103,7 @@ class FancySelect extends PureComponent {
           name={name}
           onChange={() => this.changeHandler(onChange)}
           onFocus={onFocus}
+          onBlur={() => onBlur(transformedValue)}
           value={transformedValue}
         />
       </InputWrapper>
