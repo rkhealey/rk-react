@@ -6,6 +6,7 @@ import Chip from './components/chip';
 import colors from './components/color-picker/colors';
 import ColorPicker from './components/color-picker';
 import DatePicker from './components/date-picker';
+import FancySelect from './components/fancy-select';
 import Icon from './components/icon';
 import Modal from './components/modal';
 import Range from './components/range';
@@ -23,6 +24,7 @@ export {
   ColorPicker,
   Column,
   DatePicker,
+  FancySelect,
   Icon,
   Modal,
   Range,

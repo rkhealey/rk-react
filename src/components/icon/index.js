@@ -29,7 +29,7 @@ Icon.propTypes = {
   color: PropTypes.string,
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  overrides: PropTypes.string,
+  overrides: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
   size: PropTypes.number,
   theme: PropTypes.shape({}),
 };
