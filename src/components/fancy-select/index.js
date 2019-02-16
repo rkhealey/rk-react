@@ -101,7 +101,7 @@ class FancySelect extends PureComponent {
           filterOption={filterOptions}
           styles={selectStyles}
           name={name}
-          onChange={onChange}
+          onChange={() => this.changeHandler(onChange)}
           onFocus={onFocus}
           value={transformedValue}
         />
