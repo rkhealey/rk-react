@@ -6,7 +6,7 @@ const transformOptions = (data = [], icon = null) => {
   }
   return _.map(data, (obj, index) => {
     // set default icon
-    if (!_.isNull(icon) && _.isNull(_.get(obj, 'icon', null))) {
+    if (!_.isNull(icon) && !obj.icon) {
       _.assign(obj, { icon });
     }
     // if no group is set, give each object a unique identifier

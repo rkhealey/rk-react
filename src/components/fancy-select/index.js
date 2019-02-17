@@ -71,25 +71,18 @@ class FancySelect extends PureComponent {
   constructor(props) {
     super(props);
 
-    // this.changeHandler = this.changeHandler.bind(this);
     this.transformValue = this.transformValue.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // changeHandler(func) {
-  //   return function handleChange(value) {
-  //     func(value ? value.value : '');
-  //   };
-  // }
-
   handleChange(event) {
-    console.log(event);
     if (this.props.input.onChange && event != null) {
       this.props.input.onChange(event.value);
     } else {
       this.props.input.onChange(null);
     }
   }
+
 
   transformValue(value, options) {
     const filteredOptions = options.filter(option => option.value === value);
@@ -124,7 +117,7 @@ class FancySelect extends PureComponent {
           name={name}
           onChange={this.handleChange}
           onFocus={onFocus}
-          onBlur={() => onBlur(transformedValue)}
+          onBlur={() => onBlur(value)}
           value={transformedValue}
         />
       </InputWrapper>
