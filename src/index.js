@@ -9,6 +9,7 @@ import DatePicker from './components/date-picker';
 import FancySelect from './components/fancy-select';
 import Icon from './components/icon';
 import Modal from './components/modal';
+import PopupMenu from './components/popup-menu';
 import Range from './components/range';
 import Select from './components/select';
 import TabGroup from './components/tab-group';
@@ -27,6 +28,7 @@ export {
   FancySelect,
   Icon,
   Modal,
+  PopupMenu,
   Range,
   Row,
   Select,
