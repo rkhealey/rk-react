@@ -40,10 +40,7 @@ const groupOptions = (data, icon) => {
 };
 
 const transformValue = (value, options) => {
-  console.log('value', value);
-  console.log('options', options);
   const filteredOptions = options.filter(option => option.value === value);
-  console.log('filtered', filteredOptions);
   return filteredOptions[0];
 };
 

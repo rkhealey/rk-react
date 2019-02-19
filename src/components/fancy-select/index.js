@@ -71,8 +71,6 @@ class FancySelect extends PureComponent {
   constructor(props) {
     super(props);
 
-    console.log('props', props);
-
     this.state = {
       transformedValue: transformValue(_.get(props, 'input.value'), props.options),
     };
