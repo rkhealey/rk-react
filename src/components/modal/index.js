@@ -11,7 +11,7 @@ import { fade, slide } from '../../styles/transitions';
 
 const StyledModal = styled.div`
   position: fixed;
-  top: 10%;
+  top: 3%;
   left: 0;
   margin: 0 auto;
   right: 0;
@@ -19,6 +19,8 @@ const StyledModal = styled.div`
   z-index: 10000;
 
   ${slide}
+
+  ${({ overrides }) => overrides}
 `;
 
 const Overlay = styled.div`
@@ -60,10 +62,12 @@ Modal.propTypes = {
   children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
+  overrides: PropTypes.oneOfType([PropTypes.string, PropTypes.shape({})]),
 };
 
 Modal.defaultProps = {
   isOpen: false,
+  overrides: '',
 };
 
 export default Modal;
