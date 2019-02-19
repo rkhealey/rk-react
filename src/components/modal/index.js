@@ -38,7 +38,7 @@ const Overlay = styled.div`
   ${fade(0.7)}
 `;
 
-const Modal = ({ children, isOpen, onClose }) => (
+const Modal = ({ children, isOpen, onClose, overrides }) => (
   <div>
     <Transition classname="fade" in={isOpen}>
       <Overlay
@@ -46,7 +46,7 @@ const Modal = ({ children, isOpen, onClose }) => (
       />
     </Transition>
     <Transition classname="slide" in={isOpen}>
-      <StyledModal>
+      <StyledModal overrides={overrides}>
         <Card>
           <Button invisible onClick={onClose} overrides={{ position: 'absolute', right: '1rem' }}>
             <Icon name="clear" color="#2a2a2a" />
