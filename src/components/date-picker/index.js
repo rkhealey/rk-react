@@ -9,7 +9,7 @@ import DPStyles from './styles';
 const DATE_FORMAT = 'Do MMM YYYY';
 
 const DatePickerWrapper = styled.div`
-  ${({ theme }) => DPStyles(theme)}
+  ${({ theme, position }) => DPStyles(theme, position)}
 `;
 
 const StyledLabel = styled.label`
@@ -20,10 +20,10 @@ const StyledLabel = styled.label`
   position: relative;
 `;
 
-const DatePicker = ({ input, displayFormat, label }) => {
+const DatePicker = ({ input, displayFormat, label, position }) => {
   const date = !input.value ? moment() : moment(input.value, DATE_FORMAT);
   return (
-    <DatePickerWrapper>
+    <DatePickerWrapper position={position}>
       <StyledLabel htmlFor={input.name}>
         {label && <span>{label}</span>}
         <DatePickerInput
@@ -45,11 +45,13 @@ DatePicker.propTypes = {
   }).isRequired,
   displayFormat: PropTypes.string,
   label: PropTypes.string,
+  position: PropTypes.oneOf(['top', 'bottom']),
 };
 
 DatePicker.defaultProps = {
   displayFormat: DATE_FORMAT,
   label: null,
+  position: 'bottom',
 };
 
 export default DatePicker;

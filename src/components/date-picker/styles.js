@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export default theme =>
+export default (theme, position) =>
   css`
   .react-datepicker-component.rk-datepicker {
     position: relative;
@@ -95,6 +95,7 @@ export default theme =>
     padding: 1rem;
     position: absolute;
     right: 0;
+    bottom: ${position === 'top' ? '4rem' : 'auto'}; 
   }
   .react-datepicker .week-days {
     color: ${theme.colorBold};
