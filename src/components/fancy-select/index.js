@@ -71,20 +71,21 @@ class FancySelect extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = {
-      transformedValue: transformValue(_.get(props, 'input.value'), props.options),
-    };
+    // this.state = {
+    //   transformedValue,
+    //   formattedOptions
+    // };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { input: { value } } = nextProps;
-    if (value !== _.get(this, 'props.input.value') && _.isString(value)) {
-      const transformedValue = transformValue(value, this.props.options);
-      this.setState({ transformedValue });
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   const { input: { value } } = nextProps;
+  //   if (value !== _.get(this, 'props.input.value') && _.isString(value)) {
+  //     const transformedValue = transformValue(value, this.props.options);
+  //     this.setState({ transformedValue });
+  //   }
+  // }
 
   handleChange(event) {
     if (this.props.input.onChange && event != null) {
@@ -107,8 +108,12 @@ class FancySelect extends PureComponent {
       overrides,
       defaultIcon,
     } = this.props;
-    const { transformedValue } = this.state;
+
     const formattedOptions = isGrouped ? groupOptions(options, defaultIcon) : transformOptions(options, defaultIcon);
+
+    const transformedValue = _.isString(value) ?
+      transformValue(value, options) :
+      transformValue(_.get(value, 'value'), options);
     return (
       <InputWrapper overrides={overrides}>
         <ReactSelect

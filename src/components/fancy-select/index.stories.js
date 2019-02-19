@@ -35,7 +35,10 @@ class FancySelectExample extends PureComponent {
     super(props);
 
     this.state = {
-      selectedOption: 'strawberry',
+      selectedOption: {
+        value: 'strawberry',
+        label: 'Strawberry',
+      },
     };
 
     this.updateSelection = this.updateSelection.bind(this);
@@ -49,7 +52,7 @@ class FancySelectExample extends PureComponent {
           {...this.props}
           input={{ name: 'example', onChange: this.updateSelection, onBlur: _.noop, value: this.state.selectedOption }}
         />
-        <p>Selected Option: {this.state.selectedOption}</p>
+        <p>Selected Option: {this.state.selectedOption.label || this.state.selectedOption}</p>
       </div>);
   }
 }
