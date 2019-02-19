@@ -11,7 +11,7 @@ import defaultTheme from '../../styles/theme';
 
 import Icon from '../icon';
 
-import { transformOptions, groupOptions } from './helpers';
+import { transformOptions, groupOptions, transformValue } from './helpers';
 
 const InputWrapper = styled.div`
   flex: 1;
@@ -71,8 +71,21 @@ class FancySelect extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.transformValue = this.transformValue.bind(this);
+    console.log('props', props);
+
+    this.state = {
+      transformedValue: transformValue(_.get(props, 'input.value'), props.options),
+    };
+
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { input: { value } } = nextProps;
+    if (value !== _.get(this, 'props.input.value') && _.isString(value)) {
+      const transformedValue = transformValue(value, this.props.options);
+      this.setState({ transformedValue });
+    }
   }
 
   handleChange(event) {
@@ -81,13 +94,6 @@ class FancySelect extends PureComponent {
     } else {
       this.props.input.onChange(null);
     }
-  }
-
-
-  transformValue(value, options) {
-    const filteredOptions = options.filter(option => option.value === value);
-
-    return filteredOptions[0];
   }
 
   render() {
@@ -103,7 +109,7 @@ class FancySelect extends PureComponent {
       overrides,
       defaultIcon,
     } = this.props;
-    const transformedValue = this.transformValue(value, options);
+    const { transformedValue } = this.state;
     const formattedOptions = isGrouped ? groupOptions(options, defaultIcon) : transformOptions(options, defaultIcon);
     return (
       <InputWrapper overrides={overrides}>
