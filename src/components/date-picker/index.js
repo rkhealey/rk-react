@@ -21,7 +21,7 @@ const StyledLabel = styled.label`
 `;
 
 const DatePicker = ({ input, displayFormat, label, position }) => {
-  const date = !input.value ? moment() : moment(input.value, DATE_FORMAT);
+  const date = input.value || moment();
   return (
     <DatePickerWrapper position={position}>
       <StyledLabel htmlFor={input.name}>

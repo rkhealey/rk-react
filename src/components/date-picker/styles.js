@@ -95,7 +95,8 @@ export default (theme, position) =>
     padding: 1rem;
     position: absolute;
     right: 0;
-    bottom: ${position === 'top' ? '4rem' : 'auto'}; 
+    bottom: ${position === 'top' ? '4rem' : 'auto'};
+    z-index: 105;
   }
   .react-datepicker .week-days {
     color: ${theme.colorBold};
