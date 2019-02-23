@@ -39,7 +39,17 @@ const StyledButton = styled.button`
   ${({ overrides }) => overrides}
 `;
 
-const Button = ({ block, children, floating, invisible, onClick, overrides, theme, type }) => (
+const Button = ({
+  block,
+  children,
+  disabled,
+  floating,
+  invisible,
+  onClick,
+  overrides,
+  theme,
+  type,
+}) => (
   <StyledButton
     onClick={onClick}
     type={type}
@@ -48,6 +58,7 @@ const Button = ({ block, children, floating, invisible, onClick, overrides, them
     invisible={invisible}
     overrides={overrides}
     theme={theme}
+    disabled={disabled}
   >
     {children}
   </StyledButton>
@@ -56,6 +67,7 @@ const Button = ({ block, children, floating, invisible, onClick, overrides, them
 Button.propTypes = {
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
   floating: PropTypes.shape({
     top: PropTypes.string,
     left: PropTypes.string,
@@ -71,6 +83,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   block: false,
+  disabled: false,
   floating: null,
   invisible: false,
   onClick: _.noop,
