@@ -30,6 +30,11 @@ const StyledOption = styled.div`
   }
 `;
 
+const Error = styled.p`
+  color: ${({ theme }) => theme.colorError};
+  margin-top: 0;
+`;
+
 const selectStyles = {
   container: styles => ({ ...styles, 'margin-bottom': '1.5rem' }),
   valueContainer: styles => ({ ...styles, padding: 0 }),
@@ -71,21 +76,8 @@ class FancySelect extends PureComponent {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   transformedValue,
-    //   formattedOptions
-    // };
-
     this.handleChange = this.handleChange.bind(this);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const { input: { value } } = nextProps;
-  //   if (value !== _.get(this, 'props.input.value') && _.isString(value)) {
-  //     const transformedValue = transformValue(value, this.props.options);
-  //     this.setState({ transformedValue });
-  //   }
-  // }
 
   handleChange(event) {
     if (this.props.input.onChange && event != null) {
@@ -103,6 +95,7 @@ class FancySelect extends PureComponent {
         onFocus,
         onBlur,
       },
+      meta,
       options,
       isGrouped,
       overrides,
@@ -129,6 +122,7 @@ class FancySelect extends PureComponent {
           onBlur={() => onBlur(value)}
           value={transformedValue}
         />
+        {meta.error && meta.touched && <Error>{meta.error}</Error>}
       </InputWrapper>
     );
   }
@@ -142,6 +136,10 @@ FancySelect.propTypes = {
     highlight: PropTypes.bool,
     tags: PropTypes.string,
   })).isRequired,
+  meta: PropTypes.shape({
+    error: PropTypes.string,
+    touched: PropTypes.bool,
+  }),
   input: PropTypes.shape({
     onChange: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
@@ -155,6 +153,7 @@ FancySelect.defaultProps = {
   isGrouped: false,
   overrides: {},
   defaultIcon: null,
+  meta: {},
 };
 
 export default FancySelect;
