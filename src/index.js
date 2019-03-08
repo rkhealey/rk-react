@@ -7,6 +7,7 @@ import colors from './components/color-picker/colors';
 import ColorPicker from './components/color-picker';
 import DatePicker from './components/date-picker';
 import FancySelect from './components/fancy-select';
+import FormLabel from './components/form-label';
 import Icon from './components/icon';
 import Modal from './components/modal';
 import NumberPicker from './components/number-picker';
@@ -28,6 +29,7 @@ export {
   Column,
   DatePicker,
   FancySelect,
+  FormLabel,
   Icon,
   Modal,
   NumberPicker,
