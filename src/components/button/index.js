@@ -41,28 +41,26 @@ const StyledButton = styled.button`
       cursor: auto;
       background-color: ${({ theme }) => _.get(theme, 'colorMute')};
     `}
-  
-  ${({ overrides }) => overrides}
 `;
 
 const Button = ({
   block,
   children,
+  className,
   disabled,
   floating,
   invisible,
   onClick,
-  overrides,
   theme,
   type,
 }) => (
   <StyledButton
+    className={className}
     onClick={onClick}
     type={type}
     block={block}
     floating={floating}
     invisible={invisible}
-    overrides={overrides}
     theme={theme}
     disabled={disabled}
   >
@@ -73,6 +71,7 @@ const Button = ({
 Button.propTypes = {
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   disabled: PropTypes.bool,
   floating: PropTypes.shape({
     top: PropTypes.string,
@@ -82,18 +81,17 @@ Button.propTypes = {
   }),
   invisible: PropTypes.bool,
   onClick: PropTypes.func,
-  overrides: PropTypes.shape({}),
   theme: PropTypes.shape({}),
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
 };
 
 Button.defaultProps = {
   block: false,
+  className: null,
   disabled: false,
   floating: null,
   invisible: false,
   onClick: _.noop,
-  overrides: null,
   theme: null,
   type: 'button',
 };

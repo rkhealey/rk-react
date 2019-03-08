@@ -9,10 +9,12 @@ import DatePicker from './components/date-picker';
 import FancySelect from './components/fancy-select';
 import Icon from './components/icon';
 import Modal from './components/modal';
+import NumberPicker from './components/number-picker';
 import PopupMenu from './components/popup-menu';
 import Range from './components/range';
 import Select from './components/select';
 import TabGroup from './components/tab-group';
+import TextInput from './components/text-input';
 import Toggle from './components/toggle';
 import Transition from './components/transition';
 
@@ -28,11 +30,13 @@ export {
   FancySelect,
   Icon,
   Modal,
+  NumberPicker,
   PopupMenu,
   Range,
   Row,
   Select,
   TabGroup,
+  TextInput,
   Toggle,
   Transition,
   Wrapper,
