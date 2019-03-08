@@ -36,6 +36,12 @@ const StyledButton = styled.button`
       top: ${_.get(floating, 'top', 'auto')};
     `}
   
+  ${({ disabled }) =>
+    disabled && css`
+      cursor: auto;
+      background-color: ${({ theme }) => _.get(theme, 'colorMute')};
+    `}
+  
   ${({ overrides }) => overrides}
 `;
 
