@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Icon from '../icon';
+import FormLabel from '../form-label';
 
 const InputWrapper = styled.div`
   flex: 1;
@@ -35,7 +36,7 @@ const StyledSelect = styled.select`
   }
 `;
 
-const StyledLabel = styled.label`
+const StyledLabel = styled(FormLabel)`
   background: #ffffff;
   border-radius: 4px;
   display: block;
@@ -58,7 +59,7 @@ const IconOverrides = `
 
 const Select = ({ meta, input, options, theme, defaultOption, overrides }) => (
   <InputWrapper overrides={overrides}>
-    <StyledLabel htmlFor={input.name}>
+    <StyledLabel name={input.name}>
       <StyledSelect {...input} value={_.get(input, 'value', '')} theme={theme} noValidate>
         {defaultOption && <option value="" disabled>{defaultOption}</option>}
         {_.map(options, option => (

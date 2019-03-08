@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+import FormLabel from '../form-label';
+
 const InputWrapper = styled.div`
   margin-bottom: 2rem;
   flex: 1;
-`;
-
-const FormLabel = styled.label`
-  color: ${({ theme }) => theme.colorMute};
 `;
 
 const Input = styled.input`
@@ -67,7 +65,7 @@ const TextInput = ({
 
   return (
     <InputWrapper>
-      <FormLabel htmlFor={name}>
+      <FormLabel name={name}>
         {!hidden && label}
         <Input
           {...inputProps}
