@@ -1,5 +1,4 @@
 import { DatePickerInput } from 'rc-datepicker';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -20,16 +19,17 @@ const StyledLabel = styled.label`
   position: relative;
 `;
 
-const DatePicker = ({ input, displayFormat, label, position }) => {
-  const date = input.value || moment();
+const DatePicker = ({ field, displayFormat, label, onChange, position, value }) => {
+  const date = value ? new Date(value) : new Date();
+
   return (
     <DatePickerWrapper position={position}>
-      <StyledLabel htmlFor={input.name}>
+      <StyledLabel htmlFor={field.name}>
         {label && <span>{label}</span>}
         <DatePickerInput
           className="rk-datepicker"
           iconClassName="material-icons calendar"
-          onChange={input.onChange}
+          onChange={dt => onChange(dt.toString())}
           value={date}
           displayFormat={displayFormat}
         />
@@ -39,19 +39,22 @@ const DatePicker = ({ input, displayFormat, label, position }) => {
 };
 
 DatePicker.propTypes = {
-  input: PropTypes.shape({
+  field: PropTypes.shape({
     value: PropTypes.string,
     onChange: PropTypes.func.isRequired,
   }).isRequired,
   displayFormat: PropTypes.string,
   label: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
   position: PropTypes.oneOf(['top', 'bottom']),
+  value: PropTypes.string,
 };
 
 DatePicker.defaultProps = {
   displayFormat: DATE_FORMAT,
   label: null,
   position: 'bottom',
+  value: '',
 };
 
 export default DatePicker;
