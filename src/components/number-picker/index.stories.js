@@ -17,6 +17,7 @@ const simpleProps = {
     touched: false,
     errors: {},
   },
+  onChange: _.noop,
 };
 
 

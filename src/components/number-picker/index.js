@@ -5,18 +5,24 @@ import styled from 'styled-components';
 
 import Align from '../align';
 import Button from '../button';
+import Icon from '../icon';
 import FormLabel from '../form-label';
-import TextInput from '../text-input';
 
 const InputWrapper = styled.div`
   flex: 1;
 `;
 
 const IncrementButton = styled(Button)`
+  background-color: ${({ theme }) => theme.colorWhite};
+  border: ${({ theme }) => `1px solid ${theme.colorBorder}`};
+  color: ${({ theme }) => theme.colorText};
+  font-size: 18px;
+  line-height: 18px;
   margin-left: 1rem;
 `;
 
-const DecrementButton = styled(Button)`
+const DecrementButton = styled(IncrementButton)`
+  margin-left: 0;
   margin-right: 1rem;
 `;
 
@@ -40,18 +46,22 @@ class NumberPicker extends PureComponent {
 
   increment() {
     const { currentValue } = this.state;
-    const { incrementBy, maxValue } = this.props;
+    const { incrementBy, maxValue, onChange } = this.props;
 
     const newValue = currentValue + incrementBy;
-    this.setState({ currentValue: this.isAtMax(newValue) ? maxValue : newValue });
+    this.setState({ currentValue: this.isAtMax(newValue) ? maxValue : newValue }, () => {
+      onChange(this.state.currentValue);
+    });
   }
 
   decrement() {
     const { currentValue } = this.state;
-    const { incrementBy, minValue } = this.props;
+    const { incrementBy, minValue, onChange } = this.props;
 
     const newValue = currentValue - incrementBy;
-    this.setState({ currentValue: this.isAtMin(newValue) ? minValue : newValue });
+    this.setState({ currentValue: this.isAtMin(newValue) ? minValue : newValue }, () => {
+      onChange(this.state.currentValue);
+    });
   }
 
   isAtMax(value = this.state.currentValue) {
@@ -66,16 +76,32 @@ class NumberPicker extends PureComponent {
   }
 
   render() {
-    const { name, field, form, label } = this.props;
+    const { field, label, value } = this.props;
     return (
       <InputWrapper>
-        <FormLabel name={name}>
+        <FormLabel name={field.name}>
           {label}
           <Wrapper>
-            <DecrementButton onClick={this.decrement} disabled={this.isAtMin()}>Down</DecrementButton>
+            <DecrementButton
+              onClick={this.decrement}
+              disabled={this.isAtMin()}
+            >
+              <Icon name="keyboard_arrow_down" size={16} />
+            </DecrementButton>
             <span>{this.state.currentValue}</span>
-            <IncrementButton onClick={this.increment} disabled={this.isAtMax()}>Up</IncrementButton>
-            <TextInput hidden name={name} field={field} form={form} value={this.state.currentValue} />
+            <IncrementButton
+              onClick={this.increment}
+              disabled={this.isAtMax()}
+            >
+              <Icon name="keyboard_arrow_up" size={16} />
+            </IncrementButton>
+            <input
+              hidden
+              {...field}
+              value={value}
+              noValidate
+              type="string"
+            />
           </Wrapper>
         </FormLabel>
       </InputWrapper>
@@ -84,7 +110,6 @@ class NumberPicker extends PureComponent {
 }
 
 NumberPicker.propTypes = {
-  name: PropTypes.string.isRequired,
   label: PropTypes.string,
   field: PropTypes.shape({
     name: PropTypes.string.isRequired,
@@ -98,6 +123,8 @@ NumberPicker.propTypes = {
   startingValue: PropTypes.number,
   minValue: PropTypes.number,
   maxValue: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
 };
 
 NumberPicker.defaultProps = {
@@ -106,6 +133,7 @@ NumberPicker.defaultProps = {
   startingValue: 0,
   minValue: -100,
   maxValue: 100,
+  value: '',
 };
 
 export default NumberPicker;
