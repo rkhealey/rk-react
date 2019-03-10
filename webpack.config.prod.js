@@ -2,8 +2,6 @@ const path = require('path');
 // const webpack = require('webpack');
 
 module.exports = {
-  bail: true,
-  devtool: 'source-map',
   mode: 'production',
   entry: [
     path.resolve(__dirname, 'src/index.js'),
@@ -12,8 +10,8 @@ module.exports = {
     // The build folder.
     path: path.resolve(__dirname, 'lib'),
     filename: '[name].js',
-    publicPath: '/',
-    libraryTarget: 'commonjs',
+    publicPath: '',
+    libraryTarget: 'umd',
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
@@ -64,12 +62,12 @@ module.exports = {
       commonjs2: 'react-dom',
       amd: 'react-dom',
     },
-    'styled-components': {
-      root: 'styled-components',
-      commonjs: 'styled-components',
-      commonjs2: 'styled-components',
-      amd: 'styled-components',
-    },
+    // 'styled-components': {
+    //   root: 'styled-components',
+    //   commonjs: 'styled-components',
+    //   commonjs2: 'styled-components',
+    //   amd: 'styled-components',
+    // },
   },
   // plugins: [
   //   new webpack.DefinePlugin(process.env.NODE_ENV),
