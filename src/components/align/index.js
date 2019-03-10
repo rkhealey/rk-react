@@ -15,7 +15,7 @@ const Align = ({ children, className, spacing }) => (
 );
 
 Align.propTypes = {
-  children: PropTypes.oneOf.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   spacing: PropTypes.string,
 };
