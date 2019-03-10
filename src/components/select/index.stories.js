@@ -8,7 +8,7 @@ import defaultTheme from '../../styles/theme';
 import Select from './';
 
 const simpleProps = {
-  input: {
+  field: {
     name: 'color',
     onChange: _.noop,
   },

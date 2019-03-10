@@ -15,8 +15,9 @@ const InputWrapper = styled.div`
 const StyledSelect = styled.select`
   appearance: none;
   background: transparent;
-  border: 1px solid #cccccc;
+  border: ${({ theme }) => `1px solid ${theme.colorBorder}`};
   border-radius: 4px;
+  color: ${({ theme }) => `1px solid ${theme.colorText}`};
   cursor: pointer;
   display: block;
   font-size: 1rem;
@@ -26,6 +27,10 @@ const StyledSelect = styled.select`
   position: relative;
   width: 100%;
   z-index: 101;
+
+  option {
+    color: ${({ theme }) => `1px solid ${theme.colorText}`};
+  }
 
   &:active {
     outline: none;
@@ -57,10 +62,11 @@ const IconOverrides = `
   z-index: 100;
 `;
 
-const Select = ({ meta, input, options, theme, defaultOption, overrides }) => (
-  <InputWrapper overrides={overrides}>
-    <StyledLabel name={input.name}>
-      <StyledSelect {...input} value={_.get(input, 'value', '')} theme={theme} noValidate>
+const Select = ({ className, form, field, label, options, defaultOption }) => (
+  <InputWrapper className={className}>
+    <StyledLabel name={field.name}>
+      {label && label}
+      <StyledSelect {...field} value={_.get(field, 'value', '')} noValidate>
         {defaultOption && <option value="" disabled>{defaultOption}</option>}
         {_.map(options, option => (
           <option key={option.value} value={option.value}>{option.label}</option>
@@ -68,16 +74,21 @@ const Select = ({ meta, input, options, theme, defaultOption, overrides }) => (
       </StyledSelect>
       <Icon name="keyboard_arrow_down" overrides={IconOverrides} />
     </StyledLabel>
-    {meta.error && meta.touched && <Error theme={theme}>{meta.error}</Error>}
+    {
+      form.touched[field.name] && form.errors[field.name] &&
+        <Error>{form.errors[field.name]}</Error>
+    }
   </InputWrapper>
 );
 
 Select.propTypes = {
-  meta: PropTypes.shape({
-    error: PropTypes.string,
-    touched: PropTypes.bool,
-  }),
-  input: PropTypes.shape({
+  className: PropTypes.string,
+  form: PropTypes.shape({
+    touched: PropTypes.shape({}),
+    errors: PropTypes.shape({}),
+  }).isRequired,
+  label: PropTypes.string,
+  field: PropTypes.shape({
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
   }).isRequired,
@@ -85,16 +96,13 @@ Select.propTypes = {
     label: PropTypes.node,
     value: PropTypes.string,
   })).isRequired,
-  theme: PropTypes.shape({}),
   defaultOption: PropTypes.string,
-  overrides: PropTypes.shape({}),
 };
 
 Select.defaultProps = {
-  meta: {},
-  theme: null,
+  label: null,
+  className: '',
   defaultOption: null,
-  overrides: {},
 };
 
 export default Select;
