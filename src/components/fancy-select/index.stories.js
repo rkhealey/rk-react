@@ -8,7 +8,7 @@ import defaultTheme from '../../styles/theme';
 import FancySelect from './';
 
 const simpleProps = {
-  input: {
+  field: {
     name: 'color',
     onChange: _.noop,
     onBlur: _.noop,
@@ -50,7 +50,7 @@ class FancySelectExample extends PureComponent {
       <div>
         <FancySelect
           {...this.props}
-          input={{ name: 'example', onChange: this.updateSelection, onBlur: _.noop, value: this.state.selectedOption }}
+          field={{ name: 'example', onChange: this.updateSelection, onBlur: _.noop, value: this.state.selectedOption }}
         />
         <p>Selected Option: {this.state.selectedOption.label || this.state.selectedOption}</p>
       </div>);

@@ -7,9 +7,10 @@ import ReactSelect from 'react-select';
 import styled from 'styled-components';
 import { rgba } from 'polished';
 
-import defaultTheme from '../../styles/theme';
-
+import FormLabel from '../form-label';
 import Icon from '../icon';
+
+import defaultTheme from '../../styles/theme';
 
 import { transformOptions, groupOptions, transformValue } from './helpers';
 
@@ -26,7 +27,7 @@ const StyledOption = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: ${rgba(defaultTheme.colorPrimary, 0.16)};
+    background: ${({ theme }) => rgba(theme.colorPrimary, 0.16)};
   }
 `;
 
@@ -80,25 +81,29 @@ class FancySelect extends PureComponent {
   }
 
   handleChange(event) {
-    if (this.props.input.onChange && event != null) {
-      this.props.input.onChange(event.value);
+    if (this.props.field.onChange && event != null) {
+      this.props.field.onChange(event.value);
     } else {
-      this.props.input.onChange(null);
+      this.props.field.onChange(null);
     }
   }
 
   render() {
     const {
-      input: {
+      field: {
         name,
         value,
         onFocus,
         onBlur,
       },
-      meta,
+      className,
+      form: {
+        touched,
+        errors,
+      },
+      label,
       options,
       isGrouped,
-      overrides,
       defaultIcon,
     } = this.props;
 
@@ -108,27 +113,35 @@ class FancySelect extends PureComponent {
       transformValue(value, options) :
       transformValue(_.get(value, 'value'), options);
     return (
-      <InputWrapper overrides={overrides}>
-        <ReactSelect
-          valueKey="value"
-          components={{ Option }}
-          options={formattedOptions}
-          formatGroupLabel={formatGroupLabel}
-          filterOption={filterOptions}
-          styles={selectStyles}
-          name={name}
-          onChange={this.handleChange}
-          onFocus={onFocus}
-          onBlur={() => onBlur(value)}
-          value={transformedValue}
-        />
-        {meta.error && meta.touched && <Error>{meta.error}</Error>}
+      <InputWrapper className={className}>
+        <FormLabel name={name}>
+          {label && label}
+          <ReactSelect
+            valueKey="value"
+            components={{ Option }}
+            options={formattedOptions}
+            formatGroupLabel={formatGroupLabel}
+            filterOption={filterOptions}
+            styles={selectStyles}
+            name={name}
+            onChange={this.handleChange}
+            onFocus={onFocus}
+            onBlur={() => onBlur(value)}
+            value={transformedValue}
+          />
+        </FormLabel>
+        {
+          touched[name] && errors[name] &&
+            <Error>{errors[name]}</Error>
+        }
       </InputWrapper>
     );
   }
 }
 
 FancySelect.propTypes = {
+  className: PropTypes.string,
+  label: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape({
     group: PropTypes.string,
     label: PropTypes.string.isRequired,
@@ -136,24 +149,23 @@ FancySelect.propTypes = {
     highlight: PropTypes.bool,
     tags: PropTypes.string,
   })).isRequired,
-  meta: PropTypes.shape({
-    error: PropTypes.string,
-    touched: PropTypes.bool,
-  }),
-  input: PropTypes.shape({
-    onChange: PropTypes.func.isRequired,
+  form: PropTypes.shape({
+    touched: PropTypes.shape({}),
+    errors: PropTypes.shape({}),
+  }).isRequired,
+  field: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
   }).isRequired,
   isGrouped: PropTypes.bool,
-  overrides: PropTypes.shape({}),
   defaultIcon: PropTypes.string,
 };
 
 FancySelect.defaultProps = {
-  isGrouped: false,
-  overrides: {},
+  className: '',
   defaultIcon: null,
-  meta: {},
+  isGrouped: false,
+  label: null,
 };
 
 export default FancySelect;
