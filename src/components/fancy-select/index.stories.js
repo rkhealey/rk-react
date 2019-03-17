@@ -28,6 +28,19 @@ const simpleProps = {
     value: 'strawberry',
     group: 'berry',
   }],
+  form: {
+    touched: {},
+    errors: {},
+  },
+};
+
+const errorProps = {
+  touched: {
+    example: true,
+  },
+  errors: {
+    example: 'Oops, something went wrong',
+  },
 };
 
 class FancySelectExample extends PureComponent {
@@ -71,5 +84,10 @@ storiesOf('Fancy Select', module)
   .add('fancy select with default icon', () => (
     <ThemeProvider theme={defaultTheme}>
       <FancySelectExample {...simpleProps} defaultIcon="font_download" />
+    </ThemeProvider>
+  ))
+  .add('fancy select with errors', () => (
+    <ThemeProvider theme={defaultTheme}>
+      <FancySelectExample {...simpleProps} form={errorProps} />
     </ThemeProvider>
   ));

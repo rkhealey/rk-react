@@ -34,21 +34,24 @@ const StyledOption = styled.div`
 const Error = styled.p`
   color: ${({ theme }) => theme.colorError};
   margin-top: 0;
+  margin-bottom: 1rem;
 `;
 
-const selectStyles = {
-  container: styles => ({ ...styles, 'margin-bottom': '1.5rem' }),
+const selectStyles = error => ({
+  container: styles => ({ ...styles, 'margin-bottom': error ? '0.5rem' : '1.5rem' }),
   valueContainer: styles => ({ ...styles, padding: 0 }),
   control: styles => ({
     ...styles,
     backgroundColor: 'white',
-    'border-color': defaultTheme.colorBorder,
+    'border-color': error ? defaultTheme.colorError : defaultTheme.colorBorder,
     padding: '1rem',
     'min-height': 0,
   }),
   input: styles => ({ ...styles }),
   placeholder: styles => ({ ...styles, color: defaultTheme.colorText }),
-};
+  indicatorSeparator: () => ({ display: 'none' }),
+  dropdownIndicator: styles => ({ ...styles, padding: '0 8px' }),
+});
 
 const formatGroupLabel = data => (
   <div>
@@ -76,7 +79,6 @@ const filterOptions = (candidate, input) => {
 class FancySelect extends PureComponent {
   constructor(props) {
     super(props);
-
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -122,7 +124,7 @@ class FancySelect extends PureComponent {
             options={formattedOptions}
             formatGroupLabel={formatGroupLabel}
             filterOption={filterOptions}
-            styles={selectStyles}
+            styles={selectStyles(errors[name])}
             name={name}
             onChange={this.handleChange}
             onFocus={onFocus}
