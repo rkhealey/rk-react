@@ -1,4 +1,3 @@
-// @TODO styles
 // @TODO creatable
 import _ from 'lodash';
 import PropTypes from 'prop-types';
@@ -40,18 +39,22 @@ const Error = styled.p`
 const selectStyles = error => ({
   container: styles => ({ ...styles, 'margin-bottom': error ? '0.5rem' : '1.5rem' }),
   valueContainer: styles => ({ ...styles, padding: 0 }),
-  control: styles => ({
+  control: (styles, state) => ({
     ...styles,
     backgroundColor: 'white',
     'border-color': error ? defaultTheme.colorError : defaultTheme.colorBorder,
     padding: '1rem',
     'min-height': 0,
+    outline: 'none',
+    'box-shadow': state.isFocused ? `0 0 5px ${defaultTheme.colorSecondary}` : 'none',
   }),
-  input: styles => ({ ...styles }),
+  input: styles => ({ ...styles, margin: 0, padding: 0 }),
   placeholder: styles => ({ ...styles, color: defaultTheme.colorText }),
   indicatorSeparator: () => ({ display: 'none' }),
   dropdownIndicator: styles => ({ ...styles, padding: '0 8px' }),
+  menu: styles => ({ ...styles, 'z-index': 200 }),
 });
+
 
 const formatGroupLabel = data => (
   <div>
@@ -83,10 +86,10 @@ class FancySelect extends PureComponent {
   }
 
   handleChange(event) {
-    if (this.props.field.onChange && event != null) {
-      this.props.field.onChange(event.value);
+    if (this.props.onChange && event != null) {
+      this.props.onChange(event.value);
     } else {
-      this.props.field.onChange(null);
+      this.props.onChange(null);
     }
   }
 
@@ -119,17 +122,16 @@ class FancySelect extends PureComponent {
         <FormLabel name={name}>
           {label && label}
           <ReactSelect
-            valueKey="value"
-            components={{ Option }}
             options={formattedOptions}
+            name={name}
+            value={transformedValue}
+            components={{ Option }}
+            onChange={this.handleChange}
             formatGroupLabel={formatGroupLabel}
             filterOption={filterOptions}
             styles={selectStyles(errors[name])}
-            name={name}
-            onChange={this.handleChange}
             onFocus={onFocus}
-            onBlur={() => onBlur(value)}
-            value={transformedValue}
+            onBlur={onBlur}
           />
         </FormLabel>
         {
@@ -157,10 +159,10 @@ FancySelect.propTypes = {
   }).isRequired,
   field: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
   }).isRequired,
   isGrouped: PropTypes.bool,
   defaultIcon: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
 };
 
 FancySelect.defaultProps = {

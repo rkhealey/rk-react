@@ -10,7 +10,6 @@ import FancySelect from './';
 const simpleProps = {
   field: {
     name: 'color',
-    onChange: _.noop,
     onBlur: _.noop,
     value: 'strawberry',
   },
@@ -32,6 +31,7 @@ const simpleProps = {
     touched: {},
     errors: {},
   },
+  onChange: _.noop,
 };
 
 const errorProps = {
@@ -63,7 +63,8 @@ class FancySelectExample extends PureComponent {
       <div>
         <FancySelect
           {...this.props}
-          field={{ name: 'example', onChange: this.updateSelection, onBlur: _.noop, value: this.state.selectedOption }}
+          field={{ name: 'example', onBlur: _.noop, value: this.state.selectedOption }}
+          onChange={this.updateSelection}
         />
         <p>Selected Option: {this.state.selectedOption.label || this.state.selectedOption}</p>
       </div>);
