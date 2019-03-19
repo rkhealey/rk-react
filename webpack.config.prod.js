@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'lib'),
     filename: '[name].js',
     publicPath: '',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs',
   },
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
