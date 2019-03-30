@@ -29,7 +29,7 @@ const DatePicker = ({ field, displayFormat, label, onChange, position, value }) 
         <DatePickerInput
           className="rk-datepicker"
           iconClassName="material-icons calendar"
-          onChange={dt => onChange(dt.toString())}
+          onChange={(dt, string) => onChange(string)}
           value={date}
           displayFormat={displayFormat}
         />
