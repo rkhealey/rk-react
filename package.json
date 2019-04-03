@@ -1,6 +1,6 @@
 {
   "name": "rk-react",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "description": "Global UI components built with react and styled components",
   "main": "lib/main.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "rc-datepicker": "^5.0.13",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-select": "^2.4.0",
+    "react-select": "^2.4.2",
     "react-transition-group": "^2.4.0",
     "webpack": "^4.8.3"
   },
